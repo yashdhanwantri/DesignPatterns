@@ -53,7 +53,7 @@ namespace Prototype
     }
     class ExplicitDeepCopy
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             var yash = new PersonPrototype(new[] { "Yash", "Dhanwantri" },
                 new AddressPrototype("House123", "Minnesota"));
