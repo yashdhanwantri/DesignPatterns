@@ -50,7 +50,7 @@ namespace Prototype
             return $"{nameof(HouseNumber)}: {HouseNumber}, {nameof(City)}: {City}";
         }
     }
-    class Program
+    class CopyConstructor
     {
         static void Main(string[] args)
         {

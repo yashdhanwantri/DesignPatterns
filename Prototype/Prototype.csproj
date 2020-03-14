@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartupObject>Prototype.ExplicitDeepCopy</StartupObject>
   </PropertyGroup>
 
 </Project>
