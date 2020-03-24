@@ -14,12 +14,16 @@ namespace Singleton
     public class SingletonDatabase: IDatabase
     {
         private Dictionary<string, int> capitals;
+        private static int instanceCount;
+        public static int Count => instanceCount;
         private static Lazy<SingletonDatabase> instance = new Lazy<SingletonDatabase>(()=> new SingletonDatabase());
         public static SingletonDatabase Instance => instance.Value;
         private SingletonDatabase()
         {
+            instanceCount++;
             Console.WriteLine("Initializing database");
-            capitals = File.ReadAllLines("Cities.txt")
+            capitals = File.ReadAllLines(
+                Path.Combine(new FileInfo(typeof(IDatabase).Assembly.Location).DirectoryName,"Cities.txt"))
                 .Batch(2)
                 .ToDictionary(
                 list => list.ElementAt(0).Trim(),
@@ -31,6 +35,7 @@ namespace Singleton
             return capitals[name];
         }
     }
+
     class Program
     {
         static void Main(string[] args)
